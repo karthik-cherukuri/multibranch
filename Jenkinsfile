@@ -5,12 +5,12 @@ pipeline {
         label 'master1'
     }
     stages { 
-      //stage('clone') {
-        //steps {
-          //git branch: 'main', credentialsId: 'github-tocken', url: 'https://github.com/DevOpsSecOps1/MicroService.git'
-          //echo 'Clone is susscessful from github'
-        //}
-      //}
+      stage('clone') {
+        steps {
+          git branch: 'main', credentialsId: 'github-tocken', url: 'https://github.com/DevOpsSecOps1/MicroService.git'
+          echo 'Clone is susscessful from github'
+        }
+      }
       stage('build') {
        agent {
         label 'master1'
