@@ -5,13 +5,13 @@ pipeline {
     stages { 
       stage('clone') {
         steps {
-          git branch: 'main', credentialsId: 'github-tocken', url: ''
+          git branch: 'main', credentialsId: 'github-tocken', url: 'https://github.com/ganigapetaravali/multibranch.git'
           echo 'Clone is susscessful from github'
         }
       }
       stage('build') {
        agent {
-        label 'master1'
+        label 'master'
        }
         steps {
           sh "mvn clean package"
@@ -20,7 +20,7 @@ pipeline {
       }
       stage('Test') {
         agent {
-        label 'master1'
+        label 'master'
         }
         steps {
           sh "mvn test"
@@ -29,11 +29,11 @@ pipeline {
       }
       stage('Deployment') {
         steps {
-          sshagent(['Deployment_54.88.196.251']) {
+          sshagent(['Deployment_13.126.4.190']) {
           sh """
-          scp -rp /home/ec2-user/.jenkins/workspace/Deployment_Job/target/*.jar ec2-user@54.88.196.251:/opt/apache-tomcat-8.5.84/webapps
-          ssh ec2-user@54.88.196.251 /opt/apache-tomcat-8.5.84/bin/shutdown.sh
-          ssh ec2-user@54.88.196.251 /opt/apache-tomcat-8.5.84/bin/startup.sh
+          scp -rp /home/ec2-user/.jenkins/workspace/Deployment_Job/target/*.jar ec2-user@13.126.4.190:/opt/apache-tomcat-8.5.84/webapps
+          ssh ec2-user@13.126.4.190 /opt/apache-tomcat-8.5.84/bin/shutdown.sh
+          ssh ec2-user@13.126.4.190 /opt/apache-tomcat-8.5.84/bin/startup.sh
           """
           }
         }
