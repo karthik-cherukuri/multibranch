@@ -1,6 +1,4 @@
 pipeline {
-  //agent any
-  //agent {label 'master'}
   agent {
         label 'master1'
     }
