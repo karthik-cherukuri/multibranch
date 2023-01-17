@@ -54,7 +54,7 @@ pipeline {
           sshagent(['43.205.178.45_Slave']) {
           sh ""
           docker pull artifactoryname/tomcat8
-          docker container run -it -d – name tomcatcontainer1 -p 8081:8080 artifactoryname/tomcat8
+          docker container run -it -d – name tomcatcontainer1 -p 8787:8080 artifactoryname/tomcat8
           ""
           }
         }
