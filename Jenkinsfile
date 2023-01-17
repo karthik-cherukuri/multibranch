@@ -10,13 +10,13 @@ pipeline {
           echo 'Clone is susscessful from github'
         }
       }
-      stage('build') {
+      stage('sonar-scan') {
        agent {
         label 'master'
        }
         steps {
-          sh "mvn clean package"
-          echo 'Build is suscess using maven'
+         // sh "mvn clean package"
+          //echo 'Build is suscess using maven'
         }
       }
       stage('Test') {
