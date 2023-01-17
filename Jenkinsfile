@@ -2,6 +2,7 @@ pipeline {
   agent {
         label 'master'
     }
+  // test
     stages { 
       stage('clone') {
         steps {
