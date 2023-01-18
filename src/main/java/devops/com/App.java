@@ -1,4 +1,4 @@
-package jar;
+package devops.com;
 
 /**
  * Hello world!

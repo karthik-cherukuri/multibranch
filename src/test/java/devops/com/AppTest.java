@@ -1,4 +1,4 @@
-package jar;
+package devops.com;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
