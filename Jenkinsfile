@@ -27,7 +27,7 @@ pipeline {
         label 'master'
         }
         steps {
-          sh "docker build -it apachetomcat:latest ."
+          sh "docker build -t apachetomcat:latest ."
           echo 'Docker image is created successfully'
         }
     }
