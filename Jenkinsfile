@@ -34,6 +34,7 @@ pipeline {
         }
         steps {
           sh "docker login ravali1505"
+          sh "docker tag apachetomcat:latest ravali1505/pipeline"
           sh "docker push ravali1505/pipeline "
           echo 'The image is successfully pushed'
         }
