@@ -10,15 +10,6 @@ pipeline {
           echo 'Clone is susscessful from github'
         }
       }
-      //stage('sonar-scan') {
-       //agent {
-        //label 'master'
-       //}
-        //steps {
-         // sh "mvn clean package"
-          //echo 'Build is suscess using maven'
-        //}
-      //}
       stage('Test') {
         agent {
         label 'master'
@@ -33,7 +24,7 @@ pipeline {
         label 'master'
         }
         steps {
-          sh "docker build -it artifactoryname/tomcat8 ."
+          sh "docker build -it ravali1505/pipeline1 ."
           echo 'Docker image is created successfully'
         }
       }
@@ -43,8 +34,8 @@ pipeline {
         label 'master'
         }
         steps {
-          sh "docker login artifactoryname"
-          sh "docker push artifactoryname/tomcat8 "
+          sh "docker login ravali1505"
+          sh "docker push ravali1505/pipeline "
           echo 'The image is successfully pushed'
         }
       }
@@ -53,8 +44,8 @@ pipeline {
         steps {
           sshagent(['43.205.178.45_Slave']) {
           sh ""
-          docker pull artifactoryname/tomcat8
-          docker container run -it -d – name tomcatcontainer1 -p 8787:8080 artifactoryname/tomcat8
+          docker pull ravali1505/pipeline
+          docker container run -it -d – name tomcatcontainer1 -p 8787:8080 ravali1505/pipeline
           ""
           }
         }
