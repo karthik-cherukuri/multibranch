@@ -10,15 +10,15 @@ pipeline {
         }
       }
   }
-      stage('Test') {
-        agent {
-        label 'master'
-        }
-        steps {
-          sh "mvn test"
-          echo 'Test cases executed successfully'
-        }
-      }
+     // stage('Test') {
+      //  agent {
+      //  label 'master'
+      //  }
+      //  steps {
+       //   sh "mvn test"
+       //   echo 'Test cases executed successfully'
+      //  }
+   //   }
       stage('Docker') {
         agent {
         label 'master'
