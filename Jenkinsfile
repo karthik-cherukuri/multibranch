@@ -29,7 +29,7 @@ pipeline {
           echo 'Docker image is created successfully'
         }
       }
-  stage('publishi-image') {
+  stage('publish-image') {
         agent {
         label 'master'
         }
@@ -40,4 +40,5 @@ pipeline {
           echo 'The image is successfully pushed'
         }
       }
+   }
 }
