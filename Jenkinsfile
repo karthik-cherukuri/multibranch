@@ -9,8 +9,7 @@ pipeline {
           echo 'Clone is susscessful from github'
         }
       }
-  }
-  stage('Test') {
+    stage('Test') {
         agent {
         label 'master'
         }
@@ -18,9 +17,9 @@ pipeline {
          sh "mvn test"
           echo 'Test cases executed successfully'
         }
-      }
+    }
 
-  stage('Docker') {
+    stage('Docker') {
         agent {
         label 'master'
         }
@@ -28,8 +27,8 @@ pipeline {
           sh "docker build -it apachetomcat:latest ."
           echo 'Docker image is created successfully'
         }
-      }
-  stage('publish-image') {
+    }
+    stage('publish-image') {
         agent {
         label 'master'
         }
