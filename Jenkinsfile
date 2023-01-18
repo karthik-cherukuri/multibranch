@@ -10,4 +10,13 @@ pipeline {
         }
       }
   }
+  stage('Docker') {
+        agent {
+        label 'master'
+        }
+        steps {
+          sh "docker build -it apachetomcat:latest ."
+          echo 'Docker image is created successfully'
+        }
+      }
 }
