@@ -14,6 +14,9 @@ pipeline {
         label 'master'
         }
         steps {
+          tools {
+             jdk 'jdk-1.8'
+          }
          sh "mvn test"
           echo 'Test cases executed successfully'
         }
