@@ -43,8 +43,8 @@ pipeline {
         steps {
           sshagent(['43.205.178.45_Slave']) {
           sh ""
-          docker pull ravali1505/pipeline
-          docker container run -it -d – name tomcatcontainer1 -p 8787:8080 ravali1505/pipeline
+            docker pull ravali1505/pipeline:latest
+            docker container run -it -d – name tomcatcontainer1 -p 8787:8080 ravali1505/pipeline
           ""
           }
         }
