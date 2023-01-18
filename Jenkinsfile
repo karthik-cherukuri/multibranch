@@ -2,14 +2,14 @@ pipeline {
   agent {
         label 'master'
     }
-  // test
-    stages { 
+  stages { 
       stage('clone') {
         steps {
           git branch: 'main', credentialsId: 'github-tocken', url: 'https://github.com/ganigapetaravali/multibranch.git'
           echo 'Clone is susscessful from github'
         }
       }
+  }
       stage('Test') {
         agent {
         label 'master'
@@ -28,8 +28,7 @@ pipeline {
           echo 'Docker image is created successfully'
         }
       }
-      
-      stage('publishi-image') {
+     stage('publishi-image') {
         agent {
         label 'master'
         }
@@ -51,5 +50,3 @@ pipeline {
         }
       }
     }
-  }
-}
