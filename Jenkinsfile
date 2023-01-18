@@ -13,11 +13,11 @@ pipeline {
         agent {
         label 'master'
         }
-        steps {
-          tools {
+         tools {
              jdk 'jdk-1.8'
-          }
-         sh "mvn test"
+         }
+        steps {
+          sh "mvn test"
           echo 'Test cases executed successfully'
         }
     }
