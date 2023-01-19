@@ -9,20 +9,7 @@ pipeline {
           echo 'Clone is susscessful from github'
         }
       }
-    stage('Test') {
-        agent {
-        label 'master'
-        }
-         //tools {
-            // jdk 'jdk-1.8'
-        // }
-        steps {
-          sh "mvn test"
-          echo 'Test cases executed successfully'
-        }
-    }
-
-    stage('Docker') {
+   stage('Build') {
         agent {
         label 'master'
         }
@@ -31,7 +18,8 @@ pipeline {
           echo 'Docker image is created successfully'
         }
     }
-    stage('publish-image') {
+   
+   stage('publish-image') {
         agent {
         label 'master'
         }
