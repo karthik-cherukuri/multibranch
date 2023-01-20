@@ -31,4 +31,14 @@ pipeline {
         }
       }
    }
+  stage('Email-Notification') 
+        {
+            steps 
+            {
+               emailext mimeType: 'text/html',               
+subject: "[Jenkins]${currentBuild.fullDisplayName}",               
+to: "ravali.ganigapeta@testingxperts.com",             
+body: """Please go to console output of ${BUILD_URL}input to approve or Reject"""    
+             }
+        }
 }
