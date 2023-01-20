@@ -45,4 +45,3 @@ pipeline {
       sh "docker build -t apachetomcat:latest ."
           }
        }
-   }
