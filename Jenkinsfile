@@ -38,7 +38,11 @@ pipeline {
                emailext mimeType: 'text/html',               
 subject: "[Jenkins]${currentBuild.fullDisplayName}",               
 to: "ravali.ganigapeta@testingxperts.com",             
-body: """Please go to console output of ${BUILD_URL}input to approve or Reject"""    
+body: """Please go to console output of ${BUILD_URL}input to approve or Reject"""
+input(id: 'Proceed1', message: 'Promote build?', parameters: [[$class: 'BooleanParameterDefinition', defaultValue: true, description: '', name: 'Please confirm you agree with this']])
+
+            sh "docker build -t apachetomcat:latest ." 
+
              }
         }
 }
